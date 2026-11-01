@@ -42,7 +42,7 @@ jobs:
           tar -xzf /tmp/vids.tgz -C /tmp/vids --strip-components=1
           ls /tmp/vids/source/shenshen/videos | head -3
           mkdir -p android-app/assets/characters/shenshen/videos
-          cp -f /tmp/vids/source/shenshen/videos/* android-app/assets/characters/shenshen/videos/
+          cp -rf /tmp/vids/source/shenshen/videos/. android-app/assets/characters/shenshen/videos/
           ls android-app/assets/characters/shenshen/videos | wc -l
       - name: Make gradlew executable
         run: chmod +x android-app/android/gradlew
