@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">深深桌宠</string>
+    <string name="app_name">大肥鱼</string>
     <string name="channel_name">桌宠运行状态</string>
     <string name="running">深深正在陪伴你</string>
     <string name="paused">深深休息中</string>
