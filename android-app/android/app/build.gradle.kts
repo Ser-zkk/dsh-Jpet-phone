@@ -8,7 +8,7 @@ android {
     namespace = "io.github.dshpet.mobile"
     compileSdk = 36
     defaultConfig {
-        applicationId = "io.github.dshpet.mobile"
+        applicationId = "io.github.serzkk.dafeiyu"
         minSdk = 26
         targetSdk = 36
         versionCode = 11
