@@ -52,7 +52,7 @@ val exportPetAssets by tasks.registering(Exec::class) {
     commandLine(python.get(), "scripts/export_android_assets.py", "--output",
         layout.buildDirectory.dir("generated/petAssets").get().asFile.absolutePath,
         "--res-output", layout.buildDirectory.dir("generated/petRes").get().asFile.absolutePath,
-        "--webp-quality", "80")
+        "--webp-quality", "80", "--core-only")
 }
 tasks.named("preBuild").configure { dependsOn(exportPetAssets) }
 
