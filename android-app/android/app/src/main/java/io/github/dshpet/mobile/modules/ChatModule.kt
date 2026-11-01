@@ -97,6 +97,15 @@ class ChatModule : HostBoundModule() {
      */
     fun send(text: String, petId: Int, onDone: (Result<String>) -> Unit) {
         val options = host.options
+        val localReply = runCatching { CommandRunner.run(host.context, text) }.getOrNull()
+        if (localReply != null) {
+            synchronized(history) { history.add(ChatTurn("assistant", localReply)); trim(history, options) }
+            main.post {
+                if (alive.get()) announce(petId, ChatReply(localReply))
+                onDone(Result.success(localReply))
+            }
+            return
+        }
         if (!options.chatConfigured) {
             onDone(Result.failure(ChatClient.ChatException(missingText(options))))
             return
