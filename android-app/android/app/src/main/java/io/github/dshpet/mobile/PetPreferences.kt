@@ -237,6 +237,18 @@ class PetPreferences(context: Context) {
 
     private val prefs = context.getSharedPreferences("pet", Context.MODE_PRIVATE)
 
+    init {
+        // 本 fork 的一次性默认值：点击音效默认关，AI 对话入口默认开。
+        if (!prefs.getBoolean("forkDefaultsV1", false)) {
+            prefs.edit()
+                .putBoolean(KEY_CLICK_SOUND, false)
+                .putBoolean(KEY_CHAT, true)
+                .putBoolean("forkDefaultsV1", true)
+                .apply()
+        }
+    }
+
+
     fun options() = PetOptions(
         size = prefs.getFloat(KEY_SIZE, 1f),
         wander = prefs.getBoolean(KEY_WANDER, true),
@@ -245,14 +257,14 @@ class PetPreferences(context: Context) {
         speechMinSeconds = prefs.getFloat(KEY_SPEECH_MIN, PetOptions.DEFAULT_MIN_SECONDS),
         speechMaxSeconds = prefs.getFloat(KEY_SPEECH_MAX, PetOptions.DEFAULT_MAX_SECONDS),
         speechSeconds = prefs.getFloat(KEY_SPEECH_SECONDS, PetOptions.DEFAULT_SPEECH_SECONDS),
-        clickSound = prefs.getBoolean(KEY_CLICK_SOUND, true),
+        clickSound = prefs.getBoolean(KEY_CLICK_SOUND, false),
         clickSoundVolume = prefs.getFloat(KEY_CLICK_VOLUME, .7f),
         clickSoundUri = prefs.getString(KEY_CLICK_URI, null),
         companions = prefs.getBoolean(KEY_COMPANIONS, true),
         collision = prefs.getBoolean(KEY_COLLISION, true),
         collisionRestitution = prefs.getFloat(KEY_COLLISION_RESTITUTION,
             PetOptions.DEFAULT_RESTITUTION),
-        chat = prefs.getBoolean(KEY_CHAT, false),
+        chat = prefs.getBoolean(KEY_CHAT, true),
         chatBaseUrl = prefs.getString(KEY_CHAT_BASE_URL, null)
             ?.takeIf { it.isNotBlank() } ?: PetOptions.DEFAULT_CHAT_BASE_URL,
         chatApiKey = prefs.getString(KEY_CHAT_API_KEY, null) ?: "",
