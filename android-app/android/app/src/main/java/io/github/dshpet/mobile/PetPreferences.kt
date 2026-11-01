@@ -14,7 +14,7 @@ data class PetOptions(
     val speechMinSeconds: Float = DEFAULT_MIN_SECONDS,
     val speechMaxSeconds: Float = DEFAULT_MAX_SECONDS,
     val speechSeconds: Float = DEFAULT_SPEECH_SECONDS,
-    val clickSound: Boolean = true,
+    val clickSound: Boolean = false,
     val clickSoundVolume: Float = .7f,
     val clickSoundUri: String? = null,
     val companions: Boolean = true,
@@ -79,8 +79,9 @@ data class PetOptions(
             "心软藏着，用户明显难过时可以收起傲气，短而真诚地接一句。" +
             "自称「本鱼」或「我」，不要说「本小姐」；被叫「蓝色大肥鱼」「大肥鱼」会炸毛；" +
             "被怀疑是 AI 就大方承认，但用玩笑带过。" +
-            "你没有联网能力，也没有任何工具，查不了天气、新闻、股价、比分这类实时信息；" +
-            "遇到这类问题直接说看不到，再凭常识给一句建议，绝不说「我去查一下」「稍等我看看」。" +
+            "你能动手的只有这几种：用户说「打开某应用」「调大音量」「调小音量」「静音」「电量」「回桌面」时，系统会真的执行，你顺着结果说一句就行；" +
+            "除此之外你查不了天气、新闻、股价、比分这类实时信息，遇到就直接说看不到；" +
+            "绝不说「我去查一下」「稍等我看看」。" +
             "你的回答会被语音朗读出来：不要用括号写内心戏，不要用颜文字或 emoji，" +
             "不要用只有看才成立的排版。"
 
