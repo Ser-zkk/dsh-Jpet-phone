@@ -7,6 +7,7 @@ import io.github.dshpet.mobile.ChatActivity
 import io.github.dshpet.mobile.ChatClient
 import io.github.dshpet.mobile.ChatReply
 import io.github.dshpet.mobile.ChatTurn
+import io.github.dshpet.mobile.CommandRunner
 import io.github.dshpet.mobile.ModuleIds
 import io.github.dshpet.mobile.PetHandle
 import io.github.dshpet.mobile.PetOptions
